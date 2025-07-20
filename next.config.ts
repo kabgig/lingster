@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     // Suppress webpack cache warnings
     config.infrastructureLogging = {
-      level: 'error',
+      level: "error",
     };
     return config;
   },

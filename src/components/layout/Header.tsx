@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Box,
@@ -10,9 +10,9 @@ import {
   MenuList,
   MenuItem,
   useColorModeValue,
-} from '@chakra-ui/react';
-import { IoChevronDown } from 'react-icons/io5';
-import { useState } from 'react';
+} from "@chakra-ui/react";
+import { IoChevronDown } from "react-icons/io5";
+import { useState } from "react";
 
 interface Language {
   code: string;
@@ -21,10 +21,10 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-  { code: 'fr', name: 'French', flag: '🇫🇷' },
-  { code: 'it', name: 'Italian', flag: '🇮🇹' },
-  { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
+  { code: "es", name: "Spanish", flag: "🇪🇸" },
+  { code: "fr", name: "French", flag: "🇫🇷" },
+  { code: "it", name: "Italian", flag: "🇮🇹" },
+  { code: "pt", name: "Portuguese", flag: "🇵🇹" },
 ];
 
 interface HeaderProps {
@@ -32,10 +32,15 @@ interface HeaderProps {
   onSettingsClick?: () => void;
 }
 
-export default function Header({ onPractiseClick, onSettingsClick }: HeaderProps) {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0]);
-  const bgColor = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+export default function Header({
+  onPractiseClick,
+  onSettingsClick,
+}: HeaderProps) {
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    languages[0]
+  );
+  const bgColor = useColorModeValue("white", "gray.800");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
 
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language);
@@ -65,18 +70,18 @@ export default function Header({ onPractiseClick, onSettingsClick }: HeaderProps
             fontWeight="bold"
             color="blue.500"
             cursor="pointer"
-            _hover={{ color: 'blue.600' }}
+            _hover={{ color: "blue.600" }}
           >
             LINGSTER
           </Text>
-          
+
           {/* Navigation buttons */}
           <Flex gap={4}>
             <Button
               variant="ghost"
               fontWeight="medium"
               onClick={onPractiseClick}
-              _hover={{ bg: 'gray.100' }}
+              _hover={{ bg: "gray.100" }}
             >
               PRACTISE
             </Button>
@@ -84,7 +89,7 @@ export default function Header({ onPractiseClick, onSettingsClick }: HeaderProps
               variant="ghost"
               fontWeight="medium"
               onClick={onSettingsClick}
-              _hover={{ bg: 'gray.100' }}
+              _hover={{ bg: "gray.100" }}
             >
               SETTINGS
             </Button>
@@ -110,7 +115,11 @@ export default function Header({ onPractiseClick, onSettingsClick }: HeaderProps
               <MenuItem
                 key={language.code}
                 onClick={() => handleLanguageSelect(language)}
-                bg={selectedLanguage.code === language.code ? 'blue.50' : 'transparent'}
+                bg={
+                  selectedLanguage.code === language.code
+                    ? "blue.50"
+                    : "transparent"
+                }
               >
                 <Flex align="center" gap={3}>
                   <Text fontSize="lg">{language.flag}</Text>
